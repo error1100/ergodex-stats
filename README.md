@@ -15,3 +15,7 @@ Default password: `ergodex`
 
 Then fetch the latest global index:  
 `select max(gindex) from pools;`
+
+## API
+
+API Docs can be found at http://127.0.0.1:8080/redoc
