@@ -62,6 +62,23 @@ services:
       - postgres
     networks:
       - ergodex-stats-net
+  api:
+    container_name: api
+    restart: always
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_SERVER: postgres
+      POSTGRES_USER: ergodex
+      POSTGRES_PASSWORD: ergodex
+      POSTGRES_DB: ergodex
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    networks:
+      - ergodex-stats-net
 networks:
   ergodex-stats-net:
 volumes:
