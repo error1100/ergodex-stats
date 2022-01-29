@@ -43,8 +43,8 @@ async def get_pool_snapshot_mingix(
         SELECT
             a_x.ticker as x_ticker, x_amount/POWER(10,a_x.decimals) as x_amount, 
             a_y.ticker as y_ticker, y_amount/POWER(10,a_y.decimals) as y_amount, 
-            x_amount/POWER(10,a_x.decimals)*y_amount/POWER(10,a_y.decimals) as k,
-            y_amount/POWER(10,a_y.decimals)/x_amount/POWER(10,a_x.decimals) as p,
+            (x_amount/POWER(10,a_x.decimals))*(y_amount/POWER(10,a_y.decimals)) as k,
+            (y_amount/POWER(10,a_y.decimals))/(x_amount/POWER(10,a_x.decimals)) as price,
             gindex
         FROM pools p
         LEFT JOIN assets a_x ON a_x.id = p.x_id
