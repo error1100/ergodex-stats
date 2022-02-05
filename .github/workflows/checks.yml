@@ -17,7 +17,7 @@ jobs:
       - name: Run
         run: docker-compose up -d
       - name: Check sql
-        run: psql -h postgres -d ergodex -U ergodex -c 'SELECT COUNT(*) AS cnt FROM assets;'
+        run: psql -h 127.0.0.1 -d ergodex -U ergodex -c 'SELECT COUNT(*) AS cnt FROM assets;'
         env:
           PGPASSWORD: ergodex
       - name: Check api
