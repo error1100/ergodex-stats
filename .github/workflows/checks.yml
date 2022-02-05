@@ -16,3 +16,11 @@ jobs:
         run: docker-compose build
       - name: Run
         run: docker-compose up -d
+      - name: Check sql
+        run: psql -h postgres -d ergodex -U ergodex -c 'SELECT COUNT(*) AS cnt FROM assets;'
+        env:
+          PGPASSWORD: ergodex
+      - name: Check api
+        run: curl http://127.0.0.1:8080/api/v1/pools/
+      - name: Stop
+        run: docker-compose down
