@@ -1,6 +1,6 @@
-FROM mozilla/sbt AS builder
+FROM mozilla/sbt:8u292_1.5.7 AS builder
 USER root
-ARG TAG=1.1.4
+ARG TAG=1.3.1
 WORKDIR /builder
 ADD https://github.com/ergolabs/ergo-dex-backend/archive/refs/tags/$TAG.tar.gz .
 RUN tar zxvf $TAG.tar.gz && mv ergo-dex-backend-$TAG/* .
