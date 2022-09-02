@@ -64,8 +64,6 @@ create table if not exists public.redeems (
     protocol_version integer not null
 );
 
-alter table public.redeems owner to ergo_admin;
-
 create index redeems__pool_id on public.redeems using btree (pool_id);
 create index redeems__pool_state_id on public.redeems using btree (pool_state_id);
 create index redeems__protocol_version on public.redeems using btree (protocol_version);
@@ -86,8 +84,6 @@ create table if not exists public.deposits (
     redeemer public.pubkey not null,
     protocol_version integer not null
 );
-
-alter table public.deposits owner to ergo_admin;
 
 create index deposits__pool_id on public.deposits using btree (pool_id);
 create index deposits__pool_state_id on public.deposits using btree (pool_state_id);
